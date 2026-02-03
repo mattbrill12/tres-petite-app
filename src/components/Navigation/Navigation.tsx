@@ -342,57 +342,57 @@ export const Navigation: React.FC<NavigationProps> = ({ setActiveModal }) => {
         </Brand>
 
         <DesktopNav>
-        <DropdownContainer>
-          <NavLink to="/services">
-            Our Services
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              style={{ marginLeft: '4px' }}
-            >
-              <path d="M6 9l6 6 6-6" />
-            </svg>
-          </NavLink>
-          <DropdownMenu>
-            <DropdownItem to="/services/mobile-cart">Mobile Cart</DropdownItem>
-            <DropdownItem to="/services/mobile-bar">Mobile Bar</DropdownItem>
-          </DropdownMenu>
-        </DropdownContainer>
+          <DropdownContainer>
+            <NavLink to="/services">
+              Our Services
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                style={{ marginLeft: '4px' }}
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </NavLink>
+            <DropdownMenu>
+              <DropdownItem to="/services/gourmet-cart">Gourmèt Cart</DropdownItem>
+              <DropdownItem to="/services/beverage-bar">Beverage Bar</DropdownItem>
+            </DropdownMenu>
+          </DropdownContainer>
 
-        <NavLink to="/services/curated-bites">Curated Bites</NavLink>
-        <NavLink to="/about">About Us</NavLink>
-        <NavLink to="/contact">Contact Us</NavLink>
+          <NavLink to="/services/curated-bites">Curated Bites</NavLink>
+          <NavLink to="/about">About Us</NavLink>
+          <NavLink to="/contact">Contact Us</NavLink>
         </DesktopNav>
 
         <MobileNav>
-        <Hamburger
-          onClick={toggleMenu}
-          isActive={isMobileMenuOpen}
-          aria-label="Menu"
-        >
-          <span />
-          <span />
-          <span />
-        </Hamburger>
-        <MobileMenuOverlay isActive={isMobileMenuOpen} onClick={closeMenu} />
-        <MobileMenu isActive={isMobileMenuOpen}>
-          <CloseButton onClick={closeMenu} aria-label="Close menu" $isActive={isMobileMenuOpen}>
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </CloseButton>
-          <MobileNavLink to="/services" onClick={closeMenu} $delay={0} $isActive={isMobileMenuOpen}>Our Services</MobileNavLink>
-          <MobileNavLink to="/services/mobile-cart" onClick={closeMenu} $delay={1} $isActive={isMobileMenuOpen} $isSubItem>Mobile Cart</MobileNavLink>
-          <MobileNavLink to="/services/mobile-bar" onClick={closeMenu} $delay={2} $isActive={isMobileMenuOpen} $isSubItem>Mobile Bar</MobileNavLink>
-          <MobileNavLink to="/services/curated-bites" onClick={closeMenu} $delay={3} $isActive={isMobileMenuOpen}>Curated Bites</MobileNavLink>
-          <MobileNavLink to="/about" onClick={closeMenu} $delay={4} $isActive={isMobileMenuOpen}>About Us</MobileNavLink>
-          <MobileNavLink to="/contact" onClick={closeMenu} $delay={5} $isActive={isMobileMenuOpen}>Contact Us</MobileNavLink>
-        </MobileMenu>
+          <Hamburger
+            onClick={toggleMenu}
+            isActive={isMobileMenuOpen}
+            aria-label="Menu"
+          >
+            <span />
+            <span />
+            <span />
+          </Hamburger>
+          <MobileMenuOverlay isActive={isMobileMenuOpen} onClick={closeMenu} />
+          <MobileMenu isActive={isMobileMenuOpen}>
+            <CloseButton onClick={closeMenu} aria-label="Close menu" $isActive={isMobileMenuOpen}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </CloseButton>
+            <MobileNavLink to="/services" onClick={closeMenu} $delay={0} $isActive={isMobileMenuOpen}>Our Services</MobileNavLink>
+            <MobileNavLink to="/services/gourmet-cart" onClick={closeMenu} $delay={1} $isActive={isMobileMenuOpen} $isSubItem>Gourmèt Cart</MobileNavLink>
+            <MobileNavLink to="/services/beverage-bar" onClick={closeMenu} $delay={2} $isActive={isMobileMenuOpen} $isSubItem>Beverage Bar</MobileNavLink>
+            <MobileNavLink to="/services/curated-bites" onClick={closeMenu} $delay={3} $isActive={isMobileMenuOpen}>Curated Bites</MobileNavLink>
+            <MobileNavLink to="/about" onClick={closeMenu} $delay={4} $isActive={isMobileMenuOpen}>About Us</MobileNavLink>
+            <MobileNavLink to="/contact" onClick={closeMenu} $delay={5} $isActive={isMobileMenuOpen}>Contact Us</MobileNavLink>
+          </MobileMenu>
         </MobileNav>
       </NavInner>
     </NavContainer>

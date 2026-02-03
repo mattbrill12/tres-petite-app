@@ -5,47 +5,22 @@ import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 80px 0 4rem;
+  padding: 120px 0 4rem;
   background: white;
 `;
 
-const HeroSection = styled.div`
-  width: 100%;
-  height: 300px;
-  background-image: url('${process.env.PUBLIC_URL}/mobile-charcuterie-cart-2.png');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin-bottom: 4rem;
-  overflow: hidden;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    height: 150px;
-    margin-bottom: 2rem;
-  }
-`;
 
-const HeroOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(45, 26, 51, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const HeroTitle = styled.h1`
-  color: white;
-  font-size: 3rem;
-  font-family: ${({ theme }) => theme.fonts.secondary};
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+const SectionTitle = styled.h1`
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  color: #2D1A33;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 `;
 
@@ -53,12 +28,12 @@ const ServicesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 
   @media (min-width: 1400px) {
-    max-width: 1100px;
+    max-width: 1400px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -67,6 +42,7 @@ const ServicesGrid = styled.div`
 `;
 
 const ServiceCard = styled(Link)`
+  position: relative;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -108,6 +84,32 @@ const ServiceDescription = styled.p`
   margin-bottom: 1.5rem;
 `;
 
+const ComingSoonOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(251, 239, 250, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2D1A33;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(2px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(251, 239, 250, 0.3);
+    backdrop-filter: blur(0.5px);
+    opacity: 0;
+  }
+`;
+
 const CTASection = styled.div`
   text-align: center;
   margin-top: 4rem;
@@ -146,11 +148,7 @@ const Services = () => {
 
   return (
     <PageContainer>
-      <HeroSection>
-        <HeroOverlay>
-          <HeroTitle>Our Services</HeroTitle>
-        </HeroOverlay>
-      </HeroSection>
+      <SectionTitle>Our Services</SectionTitle>
 
       <ServicesGrid>
         {services.filter(service => service.id !== 'seasonal').map((service) => (
@@ -160,12 +158,15 @@ const Services = () => {
               <ServiceTitle>{service.name}</ServiceTitle>
               <ServiceDescription>{service.description}</ServiceDescription>
             </ServiceContent>
+            {service.id === 'beverage-bar' && (
+              <ComingSoonOverlay>Coming Soon</ComingSoonOverlay>
+            )}
           </ServiceCard>
         ))}
       </ServicesGrid>
 
       <CTASection>
-        <CTAButton to="/contact">Contact to grab a quote</CTAButton>
+        <CTAButton to="/contact">Start Your Custom Quote</CTAButton>
       </CTASection>
     </PageContainer>
   );

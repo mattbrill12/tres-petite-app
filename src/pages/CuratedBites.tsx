@@ -4,33 +4,19 @@ import { Link } from 'react-router-dom';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 80px 0 4rem;
+  padding: 120px 0 4rem;
   background: white;
 `;
 
-const HeroSection = styled.div`
-  width: 100%;
-  height: 300px;
-  background-image: url('${process.env.PUBLIC_URL}/hot-chocolate-bar-2.png');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin-bottom: 4rem;
-  overflow: hidden;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    height: 150px;
-    margin-bottom: 2rem;
-  }
-`;
 
 const PackagesSection = styled.div`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 
   @media (min-width: 1400px) {
-    max-width: 1100px;
+    max-width: 1400px;
   }
 `;
 
@@ -70,16 +56,31 @@ const PackageGrid = styled.div`
   }
 `;
 
+
+
 const PackageImage = styled.div`
   width: 100%;
-  height: 250px;
+  height: 300px;
   background-size: cover;
   background-position: center;
-  margin-bottom: 1.5rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 `;
 
 const PackageContent = styled.div`
   padding: 2rem;
+`;
+
+const PackageTitleSection = styled.div<{ $tier?: number }>`
+  padding: 0.75rem;
+  border: 3px solid ${({ $tier }) =>
+    $tier === 0 ? '#C0C0C0' : // Silver
+      $tier === 1 ? '#FFD700' : // Gold
+        $tier === 2 ? '#C0AAD8' : // Purple brand color
+          'transparent'
+  };
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
 `;
 
 const PackageCard = styled.div`
@@ -123,13 +124,6 @@ const Feature = styled.li`
   align-items: center;
   font-size: 1rem;
   color: #444;
-
-  &:before {
-    content: "✓";
-    color: #2D1A33;
-    margin-right: 0.5rem;
-    font-weight: bold;
-  }
 `;
 
 const CTAButton = styled(Link)`
@@ -218,21 +212,19 @@ const CuratedBites = () => {
 
   return (
     <PageContainer>
-      <HeroSection />
-
       <PackagesSection>
         <SectionTitle>Curated Bites</SectionTitle>
-        <Description>
-          Our Curated Cup-cuterie, Grazettes, and Petite Feast brings the art of grazing to a personal level — thoughtfully designed for individual enjoyment without sacrificing elegance or flavor. Each serving is beautifully styled and filled with a handpicked selection of premium ingredients, creating a perfectly portioned gourmet experience that's as stunning as it is delicious.
-        </Description>
 
         <PackageGrid>
           {packages.map((pkg, index) => (
             <PackageCard key={index}>
               <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/hot-chocolate-bar-${index + 1}.png)` }} />
+
               <PackageContent>
-                <PackageTitle>{pkg.title}</PackageTitle>
-                <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
+                <PackageTitleSection $tier={index}>
+                  <PackageTitle>{pkg.title}</PackageTitle>
+                  <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
+                </PackageTitleSection>
                 <FeatureList>
                   {pkg.features.map((feature, i) => (
                     <Feature key={i}>{feature}</Feature>
@@ -244,7 +236,7 @@ const CuratedBites = () => {
         </PackageGrid>
 
         <CTASection>
-          <CTAButton to="/contact">Contact to grab a quote</CTAButton>
+          <CTAButton to="/contact">Start Your Custom Quote</CTAButton>
         </CTASection>
       </PackagesSection>
     </PageContainer>

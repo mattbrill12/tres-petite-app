@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
 
   html, body {
     font-family: ${({ theme }) => theme.fonts.primary};
-    background: #FBEFFA;
+    background: white;
     min-height: 100vh;
     color: ${({ theme }) => theme.colors.primary};
     overflow-x: hidden;

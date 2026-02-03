@@ -12,8 +12,8 @@ import { Package } from './types';
 import { AboutUs } from './pages/AboutUs';
 import { Home } from './pages/Home';
 import Services from './pages/Services';
-import MobileCart from './pages/MobileCart';
-import MobileBar from './pages/MobileBar';
+import GourmetCart from './pages/GourmetCart';
+import BeverageBar from './pages/BeverageBar';
 import CuratedBites from './pages/CuratedBites';
 import Contact from './pages/Contact';
 import { PackageGrid } from './styles/shared';
@@ -215,8 +215,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/services/mobile-cart" element={<MobileCart />} />
-              <Route path="/services/mobile-bar" element={<MobileBar />} />
+              <Route path="/services/gourmet-cart" element={<GourmetCart />} />
+              <Route path="/services/beverage-bar" element={<BeverageBar />} />
               <Route path="/services/curated-bites" element={<CuratedBites />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>

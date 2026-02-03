@@ -7,7 +7,8 @@ const MainContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: calc(100vh - 150px);
+  background: white;
 `;
 
 const BackgroundImage = styled.div`
@@ -15,8 +16,8 @@ const BackgroundImage = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-image: url('${process.env.PUBLIC_URL}/mobile-charcuterie-cart-1.png');
+  height: calc(100vh - 100px);
+  background-image: url('${process.env.PUBLIC_URL}/landing.png');
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
@@ -52,7 +53,7 @@ const HeroContent = styled.div`
     margin-bottom: 2rem;
     font-weight: 400;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    font-family: ${({ theme }) => theme.fonts.primary};
+    font-family: 'Dancing Script', cursive;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -64,7 +65,7 @@ const HeroContent = styled.div`
     }
     
     h2 {
-      font-size: 1.4rem;
+      font-size: 2rem;
     }
   }
 `;

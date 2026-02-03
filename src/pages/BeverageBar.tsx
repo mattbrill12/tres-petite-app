@@ -4,33 +4,19 @@ import { Link } from 'react-router-dom';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 80px 0 4rem;
+  padding: 120px 0 4rem;
   background: white;
 `;
 
-const HeroSection = styled.div`
-  width: 100%;
-  height: 300px;
-  background-image: url('${process.env.PUBLIC_URL}/beverage-bar-3.png');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin-bottom: 4rem;
-  overflow: hidden;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    height: 150px;
-    margin-bottom: 2rem;
-  }
-`;
 
 const PackagesSection = styled.div`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 
   @media (min-width: 1400px) {
-    max-width: 1100px;
+    max-width: 1400px;
   }
 `;
 
@@ -70,16 +56,31 @@ const PackageGrid = styled.div`
   }
 `;
 
+
+
 const PackageImage = styled.div`
   width: 100%;
-  height: 250px;
+  height: 300px;
   background-size: cover;
   background-position: center;
-  margin-bottom: 1.5rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 `;
 
 const PackageContent = styled.div`
   padding: 2rem;
+`;
+
+const PackageTitleSection = styled.div<{ $tier?: number }>`
+  padding: 0.75rem;
+  border: 3px solid ${({ $tier }) =>
+    $tier === 0 ? '#C0C0C0' : // Silver
+      $tier === 1 ? '#FFD700' : // Gold
+        $tier === 2 ? '#C0AAD8' : // Purple brand color
+          'transparent'
+  };
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
 `;
 
 const PackageCard = styled.div<{ isComingSoon?: boolean }>`
@@ -153,13 +154,6 @@ const Feature = styled.li`
   align-items: center;
   font-size: 1rem;
   color: #444;
-
-  &:before {
-    content: "✓";
-    color: #2D1A33;
-    margin-right: 0.5rem;
-    font-weight: bold;
-  }
 `;
 
 const Note = styled.p`
@@ -197,12 +191,26 @@ const CTAButton = styled(Link)`
   }
 `;
 
+const ComingSoonBadge = styled.span`
+  display: inline-block;
+  background: linear-gradient(135deg, #C0AAD8 0%, #8B7BA8 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: 1rem;
+  vertical-align: middle;
+`;
+
 const CTASection = styled.div`
   text-align: center;
   margin-top: 4rem;
 `;
 
-const MobileBar = () => {
+const BeverageBar = () => {
   const packages = [
     {
       title: "Graze-tini",
@@ -232,32 +240,31 @@ const MobileBar = () => {
         "Personalized signage (logo or event name)",
         "Simple cart setup",
         "Up to 2 hours of service"
-      ],
-      isComingSoon: true
+      ]
     }
   ];
 
   useEffect(() => {
-    document.title = 'Très Petite LLC | Mobile Bar';
+    document.title = 'Très Petite LLC | Beverage Bar';
   }, []);
 
   return (
     <PageContainer>
-      <HeroSection />
-
       <PackagesSection>
-        <SectionTitle>Mobile Bar</SectionTitle>
-        <Description>
-          Bring sophistication and flair to your event with our curated Beverage Mobile Bar — a stylish and fully customizable experience designed to complement your unique vision. From signature cocktails to artisanal mocktails, every detail is thoughtfully crafted to elevate your celebration and delight your guests. Simply provide your preferred selection of alcohol, and our expert team will handle the rest — crafting an unforgettable bar experience tailored to your taste.
-        </Description>
+        <SectionTitle>
+          Beverage Bar
+          <ComingSoonBadge>Coming Soon</ComingSoonBadge>
+        </SectionTitle>
 
         <PackageGrid>
           {packages.map((pkg, index) => (
-            <PackageCard key={index} isComingSoon={pkg.isComingSoon}>
+            <PackageCard key={index}>
               <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/beverage-bar-${index + 1}.png)` }} />
               <PackageContent>
-                <PackageTitle>{pkg.title}</PackageTitle>
-                <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
+                <PackageTitleSection $tier={index}>
+                  <PackageTitle>{pkg.title}</PackageTitle>
+                  <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
+                </PackageTitleSection>
                 <FeatureList>
                   {pkg.features.map((feature, i) => (
                     <Feature key={i}>{feature}</Feature>
@@ -265,19 +272,16 @@ const MobileBar = () => {
                 </FeatureList>
                 {pkg.note && <Note>{pkg.note}</Note>}
               </PackageContent>
-              {pkg.isComingSoon && (
-                <ComingSoonOverlay>Coming Soon</ComingSoonOverlay>
-              )}
             </PackageCard>
           ))}
         </PackageGrid>
 
         <CTASection>
-          <CTAButton to="/contact">Contact to grab a quote</CTAButton>
+          <CTAButton to="/contact">Start Your Custom Quote</CTAButton>
         </CTASection>
       </PackagesSection>
-    </PageContainer>
+    </PageContainer >
   );
 };
 
-export default MobileBar;
+export default BeverageBar;

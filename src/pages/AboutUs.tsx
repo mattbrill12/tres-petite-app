@@ -3,57 +3,32 @@ import styled from 'styled-components';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 80px 0 4rem;
+  padding: 120px 0 0;
   background: white;
 `;
 
-const HeroSection = styled.div`
-  width: 100%;
-  height: 300px;
-  background-image: url('${process.env.PUBLIC_URL}/mobile-charcuterie-cart-1.png');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  margin-bottom: 4rem;
-  overflow: hidden;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    height: 150px;
-    margin-bottom: 2rem;
-  }
-`;
 
-const HeroOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(45, 26, 51, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const HeroTitle = styled.h1`
-  color: white;
-  font-size: 3rem;
-  font-family: ${({ theme }) => theme.fonts.secondary};
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+const SectionTitle = styled.h1`
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  color: #2D1A33;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 `;
 
 const ContentContainer = styled.div`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 
   @media (min-width: 1400px) {
-    max-width: 1100px;
+    max-width: 1400px;
   }
 `;
 
@@ -127,15 +102,10 @@ export const AboutUs: React.FC = () => {
 
   return (
     <PageContainer>
-      <HeroSection>
-        <HeroOverlay>
-          <HeroTitle>About Us</HeroTitle>
-        </HeroOverlay>
-      </HeroSection>
+      <SectionTitle>About Us</SectionTitle>
 
       <ContentContainer>
         <MissionSection>
-          <h2>Our Mission</h2>
           <p>
             At Très Petite LLC, we believe in creating extraordinary moments through
             exceptional food and beverage experiences. Our passion lies in crafting
@@ -159,12 +129,9 @@ export const AboutUs: React.FC = () => {
         <ContactSection>
           <ContactInfo>
             <h2>Get in Touch</h2>
-            <p>130 W. Pleasant Ave. Suite 268</p>
-            <p>NJ 07607</p>
             <p>
               <a href="mailto:trespetitellc@gmail.com">trespetitellc@gmail.com</a>
             </p>
-            <p>Hours: Monday - Friday, 09:00 am – 05:00 pm</p>
           </ContactInfo>
         </ContactSection>
       </ContentContainer>

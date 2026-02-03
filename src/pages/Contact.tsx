@@ -357,7 +357,7 @@ ${formElement.message.value}`;
           </InputGroup>
 
           <InputGroup>
-            <Label htmlFor="message">Message</Label>
+            <Label htmlFor="message">Tell us more about your event</Label>
             <TextArea
               id="message"
               name="message"
