@@ -25,15 +25,20 @@ fi
 echo "✓ Building production bundle..."
 npm run build
 
+# Copy build folder to temp location
+echo "✓ Copying build to temp location..."
+cp -r build /tmp/gh-pages-build
+
 echo "✓ Switching to gh-pages branch..."
 git checkout gh-pages
 
-echo "✓ Removing old files..."
-git rm -rf . 2>/dev/null || true
-git clean -fdx
+echo "✓ Removing old files (preserving node_modules)..."
+# Remove all files except node_modules and .git
+find . -maxdepth 1 ! -name 'node_modules' ! -name '.git' ! -name '.gitignore' ! -name '.' ! -name '..' -exec rm -rf {} + 2>/dev/null || true
 
-echo "✓ Copying build files from main..."
-git checkout origin/main -- static index.html asset-manifest.json manifest.json robots.txt site.webmanifest favicon.ico favicon.html logo.png logo192.png logo512.png beverage-bar-1.png beverage-bar-2.png beverage-bar-3.png hot-chocolate-bar-1.png hot-chocolate-bar-2.png hot-chocolate-bar-3.png mobile-charcuterie-cart-1.png mobile-charcuterie-cart-2.png mobile-charcuterie-cart-3.png _redirects landing.png main.png send-email.php
+echo "✓ Copying build files from temp..."
+cp -r /tmp/gh-pages-build/* .
+rm -rf /tmp/gh-pages-build
 
 echo "✓ Adding CNAME..."
 echo "test.trespetitellc.com" > CNAME
