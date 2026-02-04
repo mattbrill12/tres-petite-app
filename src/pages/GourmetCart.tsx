@@ -21,21 +21,6 @@ const PackagesSection = styled.div`
   }
 `;
 
-const Description = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #444;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto 4rem;
-  font-family: ${({ theme }) => theme.fonts.primary};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 1rem;
-    margin-bottom: 3rem;
-    padding: 0 1rem;
-  }
-`;
 
 const SectionTitle = styled.h2`
   text-align: center;

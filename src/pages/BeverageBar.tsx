@@ -29,21 +29,6 @@ const SectionTitle = styled.h2`
   color: #2D1A33;
 `;
 
-const Description = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #444;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto 4rem;
-  font-family: ${({ theme }) => theme.fonts.primary};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 1rem;
-    margin-bottom: 3rem;
-    padding: 0 1rem;
-  }
-`;
 
 const PackageGrid = styled.div`
   display: grid;
@@ -110,31 +95,6 @@ const PackageCard = styled.div<{ isComingSoon?: boolean }>`
   `}
 `;
 
-const ComingSoonOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(251, 239, 250, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #2D1A33;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  backdrop-filter: blur(2px);
-  transition: all 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba(251, 239, 250, 0.3);
-    backdrop-filter: blur(0.5px);
-    opacity: 0;
-  }
-`;
 
 const PackageTitle = styled.h3`
   font-size: 1.8rem;
