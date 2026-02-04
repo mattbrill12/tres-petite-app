@@ -1,8 +1,9 @@
 export interface Package {
     title: string;
     subtitle: string;
-    features: string[];
     note?: string;
+    features: string[];
+    isComingSoon?: boolean;
 }
 
 export interface ModalProps {

@@ -174,6 +174,7 @@ const Contact = () => {
     firstName: '',
     lastName: '',
     email: '',
+    phone: '',
     message: '',
     serviceCategory: '',
     servicePackage: ''
@@ -217,6 +218,7 @@ const Contact = () => {
       const formattedMessage = `
 Service Category: ${categoryName}
 Package: ${formElement.servicePackage.value}
+Phone: ${formElement.phone.value}
 
 Message:
 ${formElement.message.value}`;
@@ -224,6 +226,7 @@ ${formElement.message.value}`;
       formData.append('firstName', formElement.firstName.value);
       formData.append('lastName', formElement.lastName.value);
       formData.append('email', formElement.email.value);
+      formData.append('phone', formElement.phone.value);
       formData.append('message', formattedMessage);
 
       // Log FormData after appending
@@ -251,6 +254,7 @@ ${formElement.message.value}`;
         firstName: '',
         lastName: '',
         email: '',
+        phone: '',
         message: '',
         serviceCategory: '',
         servicePackage: ''
@@ -344,17 +348,32 @@ ${formElement.message.value}`;
             </InputGroup>
           </FormGroup>
 
-          <InputGroup>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </InputGroup>
+          <FormGroup>
+            <InputGroup>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </InputGroup>
+
+            <InputGroup>
+              <Label htmlFor="phone">Phone Number</Label>
+              <Input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="(123) 456-7890"
+                required
+              />
+            </InputGroup>
+          </FormGroup>
 
           <InputGroup>
             <Label htmlFor="message">Tell us more about your event</Label>

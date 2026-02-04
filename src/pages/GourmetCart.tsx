@@ -39,7 +39,6 @@ const Description = styled.p`
 
 const SectionTitle = styled.h2`
   text-align: center;
-  margin-top: 4rem;
   margin-bottom: 2rem;
   font-size: 2.5rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
@@ -50,7 +49,8 @@ const PackageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  align-items: stretch;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
@@ -64,6 +64,9 @@ const PackageCard = styled.div`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &:hover {
     transform: translateY(-4px);
@@ -74,6 +77,7 @@ const PackageCard = styled.div`
 const PackageImage = styled.div`
   width: 100%;
   height: 300px;
+  min-height: 300px;
   background-size: cover;
   background-position: center;
   border-top-left-radius: 12px;
@@ -82,10 +86,14 @@ const PackageImage = styled.div`
 
 const PackageContent = styled.div`
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
+  min-height: 200px;
   border: 3px solid ${({ $tier }) =>
     $tier === 0 ? '#C0C0C0' : // Silver
       $tier === 1 ? '#FFD700' : // Gold
@@ -104,10 +112,12 @@ const PackageTitle = styled.h3`
 `;
 
 const PackageSubtitle = styled.h4`
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #666;
   margin-bottom: 1.5rem;
   font-weight: normal;
+  font-style: italic;
+  min-height: 2.8em;
 `;
 
 const FeatureList = styled.ul`
@@ -123,6 +133,15 @@ const Feature = styled.li`
   align-items: center;
   font-size: 1rem;
   color: #444;
+`;
+
+const Note = styled.p`
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  min-height: 1.2em;
 `;
 
 
@@ -277,6 +296,9 @@ const GourmetCart = () => {
                   <PackageTitleSection $tier={index}>
                     <PackageTitle>{pkg.title}</PackageTitle>
                     <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
+                    <Note style={{ visibility: pkg.note && pkg.note.trim() && pkg.note !== '&nbsp;' ? 'visible' : 'hidden' }}>
+                      {pkg.note || '&nbsp;'}
+                    </Note>
                   </PackageTitleSection>
                   <FeatureList>
                     {pkg.features.map((feature, i) => (

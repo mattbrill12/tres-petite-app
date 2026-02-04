@@ -35,7 +35,7 @@ const ContentContainer = styled.div`
 const MissionSection = styled.div`
   max-width: 700px;
   margin: 0 auto 4rem;
-  text-align: center;
+  text-align: left;
 
   @media (min-width: 1400px) {
     max-width: 800px;

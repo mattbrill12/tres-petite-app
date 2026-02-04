@@ -81,16 +81,17 @@ const Feature = styled.li`
   &:last-child {
     border-bottom: none;
   }
+  font-size: 1rem;
+  color: #444;
 `;
 
 const Note = styled.p`
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(120, 106, 127, 0.2);
+  font-size: 0.85rem;
+  color: #888;
   font-style: italic;
-  color: ${({ theme }) => theme.colors.textDark};
-  font-size: 0.9rem;
-  opacity: 0.8;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  min-height: 1.2em;
 `;
 
 export const PackageCard: React.FC<PackageCardProps> = ({ package: pkg }) => {
@@ -101,12 +102,14 @@ export const PackageCard: React.FC<PackageCardProps> = ({ package: pkg }) => {
         <Subtitle>{pkg.subtitle}</Subtitle>
       </Header>
       <Content>
+        <Note style={{ visibility: pkg.note && pkg.note.trim() && pkg.note !== '&nbsp;' ? 'visible' : 'hidden' }}>
+          {pkg.note || '&nbsp;'}
+        </Note>
         <FeatureList>
           {pkg.features.map((feature, index) => (
             <Feature key={index}>{feature}</Feature>
           ))}
         </FeatureList>
-        {pkg.note && <Note>{pkg.note}</Note>}
       </Content>
     </Card>
   );

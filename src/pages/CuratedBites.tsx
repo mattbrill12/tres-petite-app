@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
@@ -49,7 +50,8 @@ const PackageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  align-items: stretch;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
@@ -61,6 +63,7 @@ const PackageGrid = styled.div`
 const PackageImage = styled.div`
   width: 100%;
   height: 300px;
+  min-height: 300px;
   background-size: cover;
   background-position: center;
   border-top-left-radius: 12px;
@@ -69,10 +72,14 @@ const PackageImage = styled.div`
 
 const PackageContent = styled.div`
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
+  min-height: 200px;
   border: 3px solid ${({ $tier }) =>
     $tier === 0 ? '#C0C0C0' : // Silver
       $tier === 1 ? '#FFD700' : // Gold
@@ -90,6 +97,9 @@ const PackageCard = styled.div`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &:hover {
     transform: translateY(-4px);
@@ -105,10 +115,12 @@ const PackageTitle = styled.h3`
 `;
 
 const PackageSubtitle = styled.h4`
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #666;
   margin-bottom: 1.5rem;
   font-weight: normal;
+  font-style: italic;
+  min-height: 2.8em;
 `;
 
 const FeatureList = styled.ul`
@@ -160,51 +172,8 @@ const CTASection = styled.div`
 `;
 
 const CuratedBites = () => {
-  const packages = [
-    {
-      title: "Cup-cuterie",
-      subtitle: "Individual portions perfect for any event",
-      features: [
-        "Individually portioned charcuterie cups",
-        "2 cheese varieties",
-        "2 cured meats",
-        "Fresh and dried fruits",
-        "Nuts and olives",
-        "Gourmet crackers",
-        "Honey drizzle",
-        "Eco-friendly packaging"
-      ]
-    },
-    {
-      title: "Grazette",
-      subtitle: "Small bites with big impact",
-      features: [
-        "Mini charcuterie boards",
-        "3 cheese varieties",
-        "3 cured meats",
-        "Fresh and dried fruits",
-        "Premium nuts and olives",
-        "Artisanal crackers",
-        "Honey and jam",
-        "Decorative garnish"
-      ]
-    },
-    {
-      title: "Petite Feast",
-      subtitle: "A curated selection of premium bites",
-      features: [
-        "Luxury individual portions",
-        "4 premium cheeses",
-        "4 specialty meats",
-        "Seasonal fresh fruits",
-        "Gourmet dried fruits",
-        "Premium nuts and olives",
-        "Artisanal crackers and bread",
-        "Specialty honey and preserves",
-        "Custom garnish and presentation"
-      ]
-    }
-  ];
+  const curatedBitesService = services.find(service => service.id === 'curated-bites');
+  const packages = curatedBitesService?.packages || [];
 
   useEffect(() => {
     document.title = 'Très Petite LLC | Curated Bites';

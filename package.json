@@ -28,6 +28,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "deploy:gh-pages": "bash scripts/deploy-gh-pages.sh",
     "deploy:root": "npm run build && npm run copy-build && npm run commit-deploy",
     "copy-build": "node scripts/copy-build.js",
     "commit-deploy": "bash scripts/commit-deploy.sh"
