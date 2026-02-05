@@ -65,14 +65,8 @@ const PackageContent = styled.div`
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
   min-height: 200px;
-  border: 3px solid ${({ $tier }) =>
-    $tier === 0 ? '#C0C0C0' : // Silver
-      $tier === 1 ? '#FFD700' : // Gold
-        $tier === 2 ? '#C0AAD8' : // Purple brand color
-          'transparent'
-  };
+  border: 3px solid transparent;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
 `;
 
 const PackageCard = styled.div`

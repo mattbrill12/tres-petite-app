@@ -78,7 +78,7 @@ const PackageContent = styled.div`
 
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
-  min-height: 200px;
+  min-height: 100px;
   border: 3px solid ${({ $tier }) =>
     $tier === 0 ? '#C0C0C0' : // Silver
       $tier === 1 ? '#FFD700' : // Gold
