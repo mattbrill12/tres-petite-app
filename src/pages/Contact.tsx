@@ -315,7 +315,7 @@ ${formElement.message.value}`;
                 required
               >
                 <option value="">Select a service category</option>
-                {services.map(category => (
+                {services.filter(category => category.id !== 'seasonal' && category.id !== 'beverage-bar').map(category => (
                   <option key={category.id} value={category.id}>
                     {category.name}
                   </option>

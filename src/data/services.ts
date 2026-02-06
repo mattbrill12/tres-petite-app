@@ -20,7 +20,7 @@ export const services: ServiceCategory[] = [
         id: 'gourmet-cart',
         name: 'Gourmèt Cart',
         description: 'Experience our signature personalized cart service, perfect for any occasion.',
-        image: '/mobile-charcuterie-cart-1.png',
+        image: '/cart-landscape.png',
         commonFeatures: [
             'Gourmet crackers & breads',
             'Fresh & dried fruit',
@@ -56,6 +56,57 @@ export const services: ServiceCategory[] = [
                     'Custom décor styled to your theme',
                     'Personalized event signage',
                     'Up to 4 hours of service'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'curated-bites',
+        name: 'Curated Bites',
+        description: 'Indulge in our handpicked selection of refined bites.',
+        image: '/curated-bites-cup-cuterie.jpg',
+        packages: [
+            {
+                title: 'Cup-cuteries',
+                subtitle: 'Our modern twist on traditional charcuterie, beautifully arranged with a balance of sweet and savory ingredients!',
+                features: [
+                    'Individually portioned charcuterie cups',
+                    '2 cheese varieties',
+                    '2 cured meats',
+                    'Fresh and dried fruits',
+                    'Nuts and olives',
+                    'Gourmet crackers',
+                    'Honey drizzle',
+                    'Eco-friendly packaging'
+                ]
+            },
+            {
+                title: 'Grazette',
+                subtitle: 'Our Grazette delivers a personal charcuterie experience — 4"x4" beautifully boxed and ready to enjoy!',
+                features: [
+                    'Mini charcuterie boards',
+                    '3 cheese varieties',
+                    '3 cured meats',
+                    'Fresh and dried fruits',
+                    'Premium nuts and olives',
+                    'Artisanal crackers',
+                    'Honey and jam',
+                    'Decorative garnish'
+                ]
+            },
+            {
+                title: 'Petite Feast',
+                subtitle: 'A perfect 5"x7" gourmet charcuterie box, thoughtfully curated with premium meats, cheeses, and perfect pairings.',
+                features: [
+                    'Luxury individual portions',
+                    '4 premium cheeses',
+                    '4 specialty meats',
+                    'Seasonal fresh fruits',
+                    'Gourmet dried fruits',
+                    'Premium nuts and olives',
+                    'Artisanal crackers and bread',
+                    'Specialty honey and preserves',
+                    'Custom garnish and presentation'
                 ]
             }
         ]
@@ -99,57 +150,6 @@ export const services: ServiceCategory[] = [
         ]
     },
     {
-        id: 'curated-bites',
-        name: 'Curated Bites',
-        description: 'Indulge in our handpicked selection of refined bites.',
-        image: '/hot-chocolate-bar-1.png',
-        packages: [
-            {
-                title: 'Cup-cuteries',
-                subtitle: 'Our modern twist on traditional charcuterie, beautifully arranged with a balance of sweet and savory ingredients!',
-                features: [
-                    'Individually portioned charcuterie cups',
-                    '2 cheese varieties',
-                    '2 cured meats',
-                    'Fresh and dried fruits',
-                    'Nuts and olives',
-                    'Gourmet crackers',
-                    'Honey drizzle',
-                    'Eco-friendly packaging'
-                ]
-            },
-            {
-                title: 'Grazette',
-                subtitle: 'Small bites with big impact',
-                features: [
-                    'Mini charcuterie boards',
-                    '3 cheese varieties',
-                    '3 cured meats',
-                    'Fresh and dried fruits',
-                    'Premium nuts and olives',
-                    'Artisanal crackers',
-                    'Honey and jam',
-                    'Decorative garnish'
-                ]
-            },
-            {
-                title: 'Petite Feast',
-                subtitle: 'Our Petite Feast delivers a premium personal charcuterie experience — 5"x7" beautifully boxed and ready to enjoy!',
-                features: [
-                    'Luxury individual portions',
-                    '4 premium cheeses',
-                    '4 specialty meats',
-                    'Seasonal fresh fruits',
-                    'Gourmet dried fruits',
-                    'Premium nuts and olives',
-                    'Artisanal crackers and bread',
-                    'Specialty honey and preserves',
-                    'Custom garnish and presentation'
-                ]
-            }
-        ]
-    },
-    {
         id: 'seasonal',
         name: 'Seasonal Features',
         description: 'Special seasonal offerings for your events.',
@@ -169,7 +169,7 @@ export const services: ServiceCategory[] = [
             {
                 title: 'Sweet Sips',
                 subtitle: 'Great for birthdays, baby showers, and holiday parties',
-                note: '*Includes everything in "Cozy Cart"',
+                note: '',
                 features: [
                     '2 flavor options (Classic + Peppermint or Salted Caramel)',
                     'Additional toppings (candy canes, chocolate chips, caramel drizzle)',
@@ -181,7 +181,7 @@ export const services: ServiceCategory[] = [
             {
                 title: 'ChocoLuxe',
                 subtitle: 'Perfect for weddings, large parties, or corporate events',
-                note: '*Includes everything in "Sweet Sips"',
+                note: '',
                 features: [
                     'Up to 3 hot chocolate flavors (Classic, White Chocolate, Peppermint, Salted Caramel)',
                     'Gourmet toppings bar: crushed cookies, sprinkles, chocolate shavings',

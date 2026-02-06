@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { Navigation } from './components/Navigation/Navigation';
 import { Modal } from './components/Modal/Modal';
@@ -13,7 +13,6 @@ import { AboutUs } from './pages/AboutUs';
 import { Home } from './pages/Home';
 import Services from './pages/Services';
 import GourmetCart from './pages/GourmetCart';
-import BeverageBar from './pages/BeverageBar';
 import CuratedBites from './pages/CuratedBites';
 import Contact from './pages/Contact';
 import { PackageGrid } from './styles/shared';
@@ -216,9 +215,9 @@ function App() {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/gourmet-cart" element={<GourmetCart />} />
-              <Route path="/services/beverage-bar" element={<BeverageBar />} />
               <Route path="/services/curated-bites" element={<CuratedBites />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
 
             {/* Modals */}
