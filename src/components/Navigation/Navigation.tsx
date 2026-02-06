@@ -358,7 +358,7 @@ export const Navigation: React.FC<NavigationProps> = ({ setActiveModal }) => {
               </svg>
             </NavLink>
             <DropdownMenu>
-              <DropdownItem to="/services/gourmet-cart">Gourmèt Cart</DropdownItem>
+              <DropdownItem to="/services/gourmet-cart">Gourmet Cart</DropdownItem>
               <DropdownItem to="/services/curated-bites">Curated Bites</DropdownItem>
             </DropdownMenu>
           </DropdownContainer>
@@ -386,7 +386,7 @@ export const Navigation: React.FC<NavigationProps> = ({ setActiveModal }) => {
               </svg>
             </CloseButton>
             <MobileNavLink to="/services" onClick={closeMenu} $delay={0} $isActive={isMobileMenuOpen}>Our Services</MobileNavLink>
-            <MobileNavLink to="/services/gourmet-cart" onClick={closeMenu} $delay={1} $isActive={isMobileMenuOpen} $isSubItem>Gourmèt Cart</MobileNavLink>
+            <MobileNavLink to="/services/gourmet-cart" onClick={closeMenu} $delay={1} $isActive={isMobileMenuOpen} $isSubItem>Gourmet Cart</MobileNavLink>
             <MobileNavLink to="/services/curated-bites" onClick={closeMenu} $delay={2} $isActive={isMobileMenuOpen} $isSubItem>Curated Bites</MobileNavLink>
             <MobileNavLink to="/about" onClick={closeMenu} $delay={3} $isActive={isMobileMenuOpen}>About Us</MobileNavLink>
             <MobileNavLink to="/contact" onClick={closeMenu} $delay={5} $isActive={isMobileMenuOpen}>Contact Us</MobileNavLink>

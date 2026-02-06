@@ -18,8 +18,21 @@ export interface ServiceCategory {
 export const services: ServiceCategory[] = [
     {
         id: 'gourmet-cart',
-        name: 'Gourmèt Cart',
+        name: 'Gourmet Cart',
         description: 'Experience our signature personalized cart service, perfect for any occasion.',
+        image: '/cart-landscape.png',
+        commonFeatures: [
+            'Gourmet crackers & breads',
+            'Fresh & dried fruit',
+            'Olives & nuts',
+            'Honey & jam'
+        ],
+        packages: []
+    },
+    {
+        id: 'charcuterie-cart',
+        name: 'Charcuterie Cart',
+        description: 'Impress your guests with our Gourmet Cart experience! Featuring a refined two-hour service, complete with 2 or more attendants.',
         image: '/cart-landscape.png',
         commonFeatures: [
             'Gourmet crackers & breads',
@@ -56,6 +69,50 @@ export const services: ServiceCategory[] = [
                     'Custom décor styled to your theme',
                     'Personalized event signage',
                     'Up to 4 hours of service'
+                ]
+            }
+        ]
+    },
+    {
+        id: 'seasonal',
+        name: 'Seasonal Features',
+        description: 'Special seasonal offerings for your events.',
+        image: '/hot-chocolate-bar-2.png',
+        packages: [
+            {
+                title: 'Cozy Cart',
+                subtitle: 'Perfect for intimate gatherings or budget-friendly events',
+                note: '&nbsp;',
+                features: [
+                    'Classic hot chocolate (1 flavor)',
+                    'Basic topping (mini marshmallows, whipped cream)',
+                    'Simple cart setup',
+                    'Up to 2 hours of service'
+                ]
+            },
+            {
+                title: 'Sweet Sips',
+                subtitle: 'Great for birthdays, baby showers, and holiday parties',
+                note: '',
+                features: [
+                    '2 flavor options (Classic + Peppermint or Salted Caramel)',
+                    'Additional toppings (candy canes, chocolate chips, caramel drizzle)',
+                    'Themed decor (seasonal or event-inspired)',
+                    'Customized menu board',
+                    'Up to 2 hours of service'
+                ]
+            },
+            {
+                title: 'Chocoluxe',
+                subtitle: 'Perfect for weddings, large parties, or corporate events',
+                note: '',
+                features: [
+                    'Up to 3 hot chocolate flavors (Classic, White Chocolate, Peppermint, Salted Caramel)',
+                    'Gourmet toppings bar: crushed cookies, sprinkles, chocolate shavings',
+                    'Personalized event signage',
+                    'Upgraded decor',
+                    'Event time up to 4 hours',
+                    '2 attendants'
                 ]
             }
         ]
@@ -145,50 +202,6 @@ export const services: ServiceCategory[] = [
                     'Personalized event signage',
                     'Simple cart setup',
                     'Up to 2 hours of service'
-                ]
-            }
-        ]
-    },
-    {
-        id: 'seasonal',
-        name: 'Seasonal Features',
-        description: 'Special seasonal offerings for your events.',
-        image: '/hot-chocolate-bar-2.png',
-        packages: [
-            {
-                title: 'Cozy Cart',
-                subtitle: 'Perfect for intimate gatherings or budget-friendly events',
-                note: '&nbsp;',
-                features: [
-                    'Classic hot chocolate (1 flavor)',
-                    'Basic topping (mini marshmallows, whipped cream)',
-                    'Simple cart setup',
-                    'Up to 2 hours of service'
-                ]
-            },
-            {
-                title: 'Sweet Sips',
-                subtitle: 'Great for birthdays, baby showers, and holiday parties',
-                note: '',
-                features: [
-                    '2 flavor options (Classic + Peppermint or Salted Caramel)',
-                    'Additional toppings (candy canes, chocolate chips, caramel drizzle)',
-                    'Themed decor (seasonal or event-inspired)',
-                    'Customized menu board',
-                    'Up to 2 hours of service'
-                ]
-            },
-            {
-                title: 'ChocoLuxe',
-                subtitle: 'Perfect for weddings, large parties, or corporate events',
-                note: '',
-                features: [
-                    'Up to 3 hot chocolate flavors (Classic, White Chocolate, Peppermint, Salted Caramel)',
-                    'Gourmet toppings bar: crushed cookies, sprinkles, chocolate shavings',
-                    'Personalized event signage',
-                    'Upgraded decor',
-                    'Event time up to 4 hours',
-                    '2 attendants'
                 ]
             }
         ]

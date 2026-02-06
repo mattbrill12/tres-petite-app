@@ -152,7 +152,7 @@ const Services = () => {
       <SectionTitle>Our Services</SectionTitle>
 
       <ServicesGrid>
-        {services.filter(service => service.id !== 'seasonal').map((service) => (
+        {services.filter(service => ['gourmet-cart', 'curated-bites', 'beverage-bar'].includes(service.id)).map((service) => (
           <ServiceCard
             key={service.id}
             to={service.id === 'beverage-bar' ? '#' : `/services/${service.id}`}

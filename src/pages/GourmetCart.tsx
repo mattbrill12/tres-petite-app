@@ -143,11 +143,7 @@ const PackageContent = styled.div`
 
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
-<<<<<<< HEAD
   min-height: 140px;
-=======
-  min-height: 100px;
->>>>>>> 065eb3ef8a57b012ab19f2f1b377fe88c44dbeda
   border: 3px solid ${({ $tier }) =>
     $tier === 0 ? '#C0C0C0' : // Silver
       $tier === 1 ? '#c7ae20' : // Gold
@@ -294,16 +290,16 @@ const CommonFeature = styled.div`
 
 const GourmetCart = () => {
   useEffect(() => {
-    document.title = 'Très Petite LLC | Gourmèt Cart';
+    document.title = 'Très Petite LLC | Gourmet Cart';
   }, []);
 
-  const gourmetCartService = services.find(service => service.id === 'gourmet-cart');
+  const charcuterieCartService = services.find(service => service.id === 'charcuterie-cart');
   const seasonalService = services.find(service => service.id === 'seasonal');
 
   return (
     <PageContainer>
       <PackagesSection>
-        <SectionTitle>Gourmèt Cart</SectionTitle>
+        <SectionTitle>Gourmet Cart</SectionTitle>
         <Description>
           Our curated gourmet cart is designed to bring a touch of elegance to any special event. Fully tailored to your needs and vision, it offers endless possibilities for customization — ensuring every detail reflects your unique style. It features up to 12 delectable selections of premium fruits, artisanal cheeses, fine meats, and more. Whether you're hosting an intimate gathering or a grand celebration, our gourmet cart experience transforms your occasion into something truly unforgettable.
         </Description>
@@ -319,7 +315,7 @@ const GourmetCart = () => {
         </Description>
 
         <PackageGrid>
-          {gourmetCartService?.packages.map((pkg, index) => (
+          {charcuterieCartService?.packages.map((pkg, index) => (
             <PackageCard key={index}>
               <PackageContent>
                 <PackageTitleSection $tier={index}>
