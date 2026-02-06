@@ -75,6 +75,7 @@ const PackageContent = styled.div`
 
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
+<<<<<<< HEAD
   min-height: 140px;
   border: 3px solid ${({ $tier }) =>
     $tier === 0 ? '#C0C0C0' : // Silver
@@ -82,6 +83,10 @@ const PackageTitleSection = styled.div<{ $tier?: number }>`
         $tier === 2 ? '#C0AAD8' : // Purple brand color
           'transparent'
   };
+=======
+  min-height: 200px;
+  border: 3px solid transparent;
+>>>>>>> 065eb3ef8a57b012ab19f2f1b377fe88c44dbeda
   border-radius: 8px;
 `;
 
