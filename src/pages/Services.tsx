@@ -5,7 +5,7 @@ import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 120px 0 4rem;
+  padding: 130px 0 4rem;
   background: white;
 `;
 
