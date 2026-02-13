@@ -19,7 +19,7 @@ export const services: ServiceCategory[] = [
     {
         id: 'gourmet-cart',
         name: 'Gourmet Cart',
-        description: 'Experience our signature personalized cart service, perfect for any occasion.',
+        description: 'Impress your guests with our luxurious gourmet cart  service - perfect for any occasion!',
         image: '/cart-landscape.png',
         commonFeatures: [
             'Gourmet crackers & breads',
@@ -80,8 +80,8 @@ export const services: ServiceCategory[] = [
         image: '/hot-chocolate-bar-2.png',
         packages: [
             {
-                title: 'Cozy Cart',
-                subtitle: 'Perfect for intimate gatherings or budget-friendly events',
+                title: 'Petite Sips',
+                subtitle: 'Sip, savor, and customize – our hot chocolate bar brings cozy, comfort, and fun to any gathering!',
                 note: '&nbsp;',
                 features: [
                     'Classic hot chocolate (1 flavor)',
@@ -91,8 +91,8 @@ export const services: ServiceCategory[] = [
                 ]
             },
             {
-                title: 'Sweet Sips',
-                subtitle: 'Great for birthdays, baby showers, and holiday parties',
+                title: 'Petite Pâtisserie',
+                subtitle: 'Indulge your sweet tooth with our pastry bar – cakes, croffles, pancakes - petite treats and big flavors!',
                 note: '',
                 features: [
                     '2 flavor options (Classic + Peppermint or Salted Caramel)',
@@ -103,8 +103,8 @@ export const services: ServiceCategory[] = [
                 ]
             },
             {
-                title: 'Chocoluxe',
-                subtitle: 'Perfect for weddings, large parties, or corporate events',
+                title: 'Petite Scoops',
+                subtitle: 'Ice cream made your way - mix and match your favorite flavors with endless toppings!',
                 note: '',
                 features: [
                     'Up to 3 hot chocolate flavors (Classic, White Chocolate, Peppermint, Salted Caramel)',
@@ -120,7 +120,7 @@ export const services: ServiceCategory[] = [
     {
         id: 'curated-bites',
         name: 'Curated Bites',
-        description: 'Indulge in our handpicked selection of refined bites.',
+        description: 'No cart needed? Elevate your gathering with our beautifully curated bites.',
         image: '/curated-bites-cup-cuterie.jpg',
         packages: [
             {

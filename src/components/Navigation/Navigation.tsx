@@ -364,6 +364,7 @@ export const Navigation: React.FC<NavigationProps> = ({ setActiveModal }) => {
           </DropdownContainer>
 
           <NavLink to="/about">About Us</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
           <NavLink to="/contact">Contact Us</NavLink>
         </DesktopNav>
 
@@ -389,6 +390,7 @@ export const Navigation: React.FC<NavigationProps> = ({ setActiveModal }) => {
             <MobileNavLink to="/services/gourmet-cart" onClick={closeMenu} $delay={1} $isActive={isMobileMenuOpen} $isSubItem>Gourmet Cart</MobileNavLink>
             <MobileNavLink to="/services/curated-bites" onClick={closeMenu} $delay={2} $isActive={isMobileMenuOpen} $isSubItem>Curated Bites</MobileNavLink>
             <MobileNavLink to="/about" onClick={closeMenu} $delay={3} $isActive={isMobileMenuOpen}>About Us</MobileNavLink>
+            <MobileNavLink to="/gallery" onClick={closeMenu} $delay={4} $isActive={isMobileMenuOpen}>Gallery</MobileNavLink>
             <MobileNavLink to="/contact" onClick={closeMenu} $delay={5} $isActive={isMobileMenuOpen}>Contact Us</MobileNavLink>
           </MobileMenu>
         </MobileNav>

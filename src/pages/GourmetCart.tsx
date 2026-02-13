@@ -5,7 +5,7 @@ import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 120px 0 4rem;
+  padding: 130px 0 4rem;
   background: white;
 `;
 
@@ -301,7 +301,7 @@ const GourmetCart = () => {
       <PackagesSection>
         <SectionTitle>Gourmet Cart</SectionTitle>
         <Description>
-          Our curated gourmet cart is designed to bring a touch of elegance to any special event. Fully tailored to your needs and vision, it offers endless possibilities for customization — ensuring every detail reflects your unique style. It features up to 12 delectable selections of premium fruits, artisanal cheeses, fine meats, and more. Whether you're hosting an intimate gathering or a grand celebration, our gourmet cart experience transforms your occasion into something truly unforgettable.
+          Our luxurious gourmet cart is designed to bring a touch of elegance to any special event. Fully tailored to your needs and vision, it offers endless possibilities for customization! Whether you're hosting an intimate gathering or a grand celebration, our gourmet cart experience transforms your occasion into something truly unforgettable!
         </Description>
 
         <CartImage
@@ -311,7 +311,7 @@ const GourmetCart = () => {
         <Divider />
         <SubHeading>Charcuterie Cart</SubHeading>
         <Description>
-          Impress your guests with our Gourmet Cart experience! Featuring a refined two-hour service, complete with 2 or more attendants, to help make every moment memorable from start to finish.
+          Experience our Gourmet Cart packages! Featuring a refined two-hour service, complete with 2 or more attendants, up to 12 delectable selections of premium fruits, artisanal cheeses, fine meats, and more. We’re here to help you make every moment memorable from start to finish. Let’s celebrate!
         </Description>
 
         <PackageGrid>
@@ -335,25 +335,32 @@ const GourmetCart = () => {
 
         <SubHeading>Seasonal Features</SubHeading>
         <Description>
-          Impress your guests with our Seasonal Features experience! Featuring a refined two-hour service, complete with 2 or more attendants, to help make every moment memorable from start to finish.
+          Want something more than charcuterie? Try some of Tres Petite’s favorite selections that are sure to please your guests!
         </Description>
 
         <PackageGrid>
           {seasonalService?.packages
-            .map((pkg, index) => (
-              <PackageCard key={`seasonal-${index}`}>
-                <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}${seasonalService?.image})` }} />
-                <PackageContent>
-                  <PackageTitleSection>
-                    <PackageTitle>{pkg.title}</PackageTitle>
-                    <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
-                    <Note style={{ visibility: pkg.note && pkg.note.trim() && pkg.note !== '&nbsp;' ? 'visible' : 'hidden' }}>
-                      {pkg.note || '&nbsp;'}
-                    </Note>
-                  </PackageTitleSection>
-                </PackageContent>
-              </PackageCard>
-            ))}
+            .map((pkg, index) => {
+              const imageMap = [
+                'sweet-sips.png',      // Petite Sips
+                'croffle.png',         // Petite Pâtisserie  
+                'petite-scoops.png'    // Petite Scoops
+              ];
+              return (
+                <PackageCard key={`seasonal-${index}`}>
+                  <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${imageMap[index]})` }} />
+                  <PackageContent>
+                    <PackageTitleSection>
+                      <PackageTitle>{pkg.title}</PackageTitle>
+                      <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
+                      <Note style={{ visibility: pkg.note && pkg.note.trim() && pkg.note !== '&nbsp;' ? 'visible' : 'hidden' }}>
+                        {pkg.note || '&nbsp;'}
+                      </Note>
+                    </PackageTitleSection>
+                  </PackageContent>
+                </PackageCard>
+              );
+            })}
         </PackageGrid>
 
         <CTASection>

@@ -5,7 +5,7 @@ import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 120px 0 4rem;
+  padding: 130px 0 4rem;
   background: white;
 `;
 
@@ -178,7 +178,7 @@ const CuratedBites = () => {
       <PackagesSection>
         <SectionTitle>Curated Bites</SectionTitle>
         <Description>
-          Our Curated Cup-cuterie, Grazettes, and Petite Feast brings the art of grazing to a personal level — thoughtfully designed for individual enjoyment without sacrificing elegance or flavor. Each serving is beautifully styled and filled with a handpicked selection of premium ingredients, creating a perfectly portioned gourmet experience that's as stunning as it is delicious.
+          Our curated Cup-cuteries, Grazettes, and Petite Feasts offer a perfectly portioned bite-size experience – ideal for delivery or picked when a full gourmet cart service is not needed. Thoughtfully styled, elegant, and delicious!
         </Description>
 
         <PackageGrid>
