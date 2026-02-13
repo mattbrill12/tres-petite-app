@@ -234,7 +234,7 @@ export const Gallery: React.FC = () => {
       <ContentContainer>
         <SectionTitle>Gallery</SectionTitle>
         <SectionSubtitle>
-          Explore our collection of beautiful events, delicious displays, and memorable moments.
+          Explore our beautiful events, delicious displays, and memorable moments.
         </SectionSubtitle>
 
         <GalleryGrid>
