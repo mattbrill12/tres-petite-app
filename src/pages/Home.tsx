@@ -24,18 +24,16 @@ const BackgroundImage = styled.div`
   z-index: 1;
 `;
 
-
-
 const HeroContent = styled.div`
   position: relative;
   z-index: 3;
   text-align: center;
   width: 100%;
-  max-width: 700px;
+  max-width: 900px;
   padding: 2rem;
 
   @media (min-width: 1400px) {
-    max-width: 800px;
+    max-width: 1000px;
   }
 
   h1 {
@@ -48,12 +46,27 @@ const HeroContent = styled.div`
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     color: white;
     margin-bottom: 2rem;
-    font-weight: 400;
+    font-weight: 500;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-family: 'Dancing Script', cursive;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 0.3s;
+    -webkit-text-stroke: 0.5px white;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -67,6 +80,35 @@ const HeroContent = styled.div`
     h2 {
       font-size: 2rem;
     }
+  }
+`;
+
+const SecondaryText = styled.h3`
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-family: 'Dancing Script', cursive;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 2s;
+  -webkit-text-stroke: 0.5px white;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 2rem;
   }
 `;
 

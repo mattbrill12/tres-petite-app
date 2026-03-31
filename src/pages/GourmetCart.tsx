@@ -5,7 +5,7 @@ import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 120px 0 4rem;
+  padding: 130px 0 4rem;
   background: white;
 `;
 
@@ -28,6 +28,71 @@ const SectionTitle = styled.h2`
   font-size: 2.5rem;
   font-family: ${({ theme }) => theme.fonts.secondary};
   color: #2D1A33;
+`;
+
+const Description = styled.p`
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  font-family: ${({ theme }) => theme.fonts.primary};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+`;
+
+const SubHeading = styled.h3`
+  text-align: center;
+  margin: 2rem 0 2rem;
+  font-size: 1.8rem;
+  font-family: ${({ theme }) => theme.fonts.secondary};
+  color: #2D1A33;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 1.5rem;
+  }
+`;
+
+const PlaceholderImage = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  height: 400px;
+  margin: 0 auto 3rem;
+  background: linear-gradient(135deg, #f5f0f6 0%, #e8dfe9 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #786a7d;
+  font-style: italic;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    height: 300px;
+    margin-bottom: 2rem;
+  }
+`;
+
+const CartImage = styled.img`
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  margin: 0 auto 3rem;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    max-height: 300px;
+    margin-bottom: 2rem;
+  }
 `;
 
 const PackageGrid = styled.div`
@@ -78,15 +143,14 @@ const PackageContent = styled.div`
 
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
-  min-height: 100px;
+  min-height: 140px;
   border: 3px solid ${({ $tier }) =>
     $tier === 0 ? '#C0C0C0' : // Silver
-      $tier === 1 ? '#FFD700' : // Gold
+      $tier === 1 ? '#c7ae20' : // Gold
         $tier === 2 ? '#C0AAD8' : // Purple brand color
           'transparent'
   };
   border-radius: 8px;
-  margin-bottom: 1rem;
 `;
 
 const PackageTitle = styled.h3`
@@ -99,7 +163,6 @@ const PackageTitle = styled.h3`
 const PackageSubtitle = styled.h4`
   font-size: 0.95rem;
   color: #666;
-  margin-bottom: 1.5rem;
   font-weight: normal;
   font-style: italic;
   min-height: 2.8em;
@@ -227,72 +290,77 @@ const CommonFeature = styled.div`
 
 const GourmetCart = () => {
   useEffect(() => {
-    document.title = 'Très Petite LLC | Gourmèt Cart';
+    document.title = 'Très Petite LLC | Gourmet Cart';
   }, []);
 
-  const gourmetCartService = services.find(service => service.id === 'gourmet-cart');
+  const charcuterieCartService = services.find(service => service.id === 'charcuterie-cart');
   const seasonalService = services.find(service => service.id === 'seasonal');
 
   return (
     <PageContainer>
       <PackagesSection>
-        <SectionTitle>Gourmèt Cart</SectionTitle>
+        <SectionTitle>Gourmet Cart</SectionTitle>
+        <Description>
+          Our luxurious gourmet cart is designed to bring a touch of elegance to any special event. Fully tailored to your needs and vision, it offers endless possibilities for customization! Whether you're hosting an intimate gathering or a grand celebration, our gourmet cart experience transforms your occasion into something truly unforgettable!
+        </Description>
 
-        {gourmetCartService?.commonFeatures && (
-          <CommonFeaturesSection>
-            <h3>Included in all packages</h3>
-            <CommonFeaturesList>
-              {gourmetCartService.commonFeatures.map((feature, index) => (
-                <CommonFeature key={index}>{feature}</CommonFeature>
-              ))}
-            </CommonFeaturesList>
-          </CommonFeaturesSection>
-        )}
+        <CartImage
+          src={`${process.env.PUBLIC_URL}/cart-3.jpg`}
+          alt="Gourmet Cart Showcase"
+        />
+        <Divider />
+        <SubHeading>Charcuterie Cart</SubHeading>
+        <Description>
+          Experience our Gourmet Cart packages! Featuring a refined two-hour service, complete with 2 or more attendants, up to 12 delectable selections of premium fruits, artisanal cheeses, fine meats, and more. We’re here to help you make every moment memorable from start to finish. Let’s celebrate!
+        </Description>
 
         <PackageGrid>
-          {gourmetCartService?.packages.map((pkg, index) => (
+          {charcuterieCartService?.packages.map((pkg, index) => (
             <PackageCard key={index}>
-              <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/mobile-charcuterie-cart-${index + 1}.png)` }} />
               <PackageContent>
                 <PackageTitleSection $tier={index}>
                   <PackageTitle>{pkg.title}</PackageTitle>
                   <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
                 </PackageTitleSection>
-                <FeatureList>
-                  {pkg.features.map((feature, i) => (
-                    <Feature key={i}>{feature}</Feature>
-                  ))}
-                </FeatureList>
               </PackageContent>
             </PackageCard>
           ))}
         </PackageGrid>
 
+        <CTASection>
+          <CTAButton to="/contact">Start Your Custom Quote</CTAButton>
+        </CTASection>
+
         <Divider />
 
-        <SectionTitle>Seasonal Features</SectionTitle>
+        <SubHeading>Seasonal Features</SubHeading>
+        <Description>
+          Want something more than charcuterie? Try some of Tres Petite’s favorite selections that are sure to please your guests!
+        </Description>
 
         <PackageGrid>
           {seasonalService?.packages
-            .map((pkg, index) => (
-              <PackageCard key={`seasonal-${index}`}>
-                <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/hot-chocolate-bar-${index + 1}.png)` }} />
-                <PackageContent>
-                  <PackageTitleSection $tier={index}>
-                    <PackageTitle>{pkg.title}</PackageTitle>
-                    <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
-                    <Note style={{ visibility: pkg.note && pkg.note.trim() && pkg.note !== '&nbsp;' ? 'visible' : 'hidden' }}>
-                      {pkg.note || '&nbsp;'}
-                    </Note>
-                  </PackageTitleSection>
-                  <FeatureList>
-                    {pkg.features.map((feature, i) => (
-                      <Feature key={i}>{feature}</Feature>
-                    ))}
-                  </FeatureList>
-                </PackageContent>
-              </PackageCard>
-            ))}
+            .map((pkg, index) => {
+              const imageMap = [
+                'sweet-sips.png',      // Petite Sips
+                'croffle.png',         // Petite Pâtisserie  
+                'petite-scoops.png'    // Petite Scoops
+              ];
+              return (
+                <PackageCard key={`seasonal-${index}`}>
+                  <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/${imageMap[index]})` }} />
+                  <PackageContent>
+                    <PackageTitleSection>
+                      <PackageTitle>{pkg.title}</PackageTitle>
+                      <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
+                      <Note style={{ visibility: pkg.note && pkg.note.trim() && pkg.note !== '&nbsp;' ? 'visible' : 'hidden' }}>
+                        {pkg.note || '&nbsp;'}
+                      </Note>
+                    </PackageTitleSection>
+                  </PackageContent>
+                </PackageCard>
+              );
+            })}
         </PackageGrid>
 
         <CTASection>

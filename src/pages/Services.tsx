@@ -5,7 +5,7 @@ import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 120px 0 4rem;
+  padding: 130px 0 4rem;
   background: white;
 `;
 
@@ -57,11 +57,12 @@ const ServiceCard = styled(Link)`
   }
 `;
 
-const ServiceImage = styled.div<{ image: string }>`
+const ServiceImage = styled.div<{ image: string; $isCuratedBites?: boolean }>`
   width: 100%;
   height: 250px;
   background-image: url(${({ image }) => image});
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
 `;
 
@@ -151,9 +152,18 @@ const Services = () => {
       <SectionTitle>Our Services</SectionTitle>
 
       <ServicesGrid>
-        {services.filter(service => service.id !== 'seasonal').map((service) => (
-          <ServiceCard key={service.id} to={`/services/${service.id}`}>
-            <ServiceImage image={`${process.env.PUBLIC_URL}${service.image}`} />
+        {services.filter(service => ['gourmet-cart', 'curated-bites', 'beverage-bar'].includes(service.id)).map((service) => (
+          <ServiceCard
+            key={service.id}
+            to={service.id === 'beverage-bar' ? '#' : `/services/${service.id}`}
+            onClick={(e: React.MouseEvent) => {
+              if (service.id === 'beverage-bar') {
+                e.preventDefault();
+              }
+            }}
+            style={{ cursor: service.id === 'beverage-bar' ? 'default' : 'pointer' }}
+          >
+            <ServiceImage image={`${process.env.PUBLIC_URL}${service.image}`} $isCuratedBites={service.id === 'curated-bites'} />
             <ServiceContent>
               <ServiceTitle>{service.name}</ServiceTitle>
               <ServiceDescription>{service.description}</ServiceDescription>

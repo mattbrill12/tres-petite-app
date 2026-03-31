@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { Navigation } from './components/Navigation/Navigation';
 import { Modal } from './components/Modal/Modal';
@@ -11,9 +11,9 @@ import { theme } from './styles/theme';
 import { Package } from './types';
 import { AboutUs } from './pages/AboutUs';
 import { Home } from './pages/Home';
+import { Gallery } from './pages/Gallery';
 import Services from './pages/Services';
 import GourmetCart from './pages/GourmetCart';
-import BeverageBar from './pages/BeverageBar';
 import CuratedBites from './pages/CuratedBites';
 import Contact from './pages/Contact';
 import { PackageGrid } from './styles/shared';
@@ -53,7 +53,7 @@ const beveragePackages: Package[] = [
 
 const seasonalPackages: Package[] = [
   {
-    title: '"Cozy Cart" Package - Basic',
+    title: '"Petite Sips" Package - Basic',
     subtitle: 'Perfect for intimate gatherings or budget-friendly events.',
     features: [
       'Classic hot chocolate (1 flavor)',
@@ -63,7 +63,7 @@ const seasonalPackages: Package[] = [
     ]
   },
   {
-    title: '"Sweet Sips" Package - Standard',
+    title: '"Petite Pâtisserie" Package - Standard',
     subtitle: 'Great for birthdays, baby showers, and holiday parties',
     features: [
       '2 flavor options (Classic + Peppermint or Salted Caramel)',
@@ -214,11 +214,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutUs />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/gourmet-cart" element={<GourmetCart />} />
-              <Route path="/services/beverage-bar" element={<BeverageBar />} />
               <Route path="/services/curated-bites" element={<CuratedBites />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
 
             {/* Modals */}

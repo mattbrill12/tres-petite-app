@@ -5,7 +5,7 @@ import { services } from '../data/services';
 
 const PageContainer = styled.div`
   min-height: 100vh;
-  padding: 120px 0 4rem;
+  padding: 130px 0 4rem;
   background: white;
 `;
 
@@ -30,6 +30,16 @@ const SectionTitle = styled.h2`
   color: #2D1A33;
 `;
 
+const Description = styled.p`
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  padding: 0 1rem;
+`;
+
 
 const PackageGrid = styled.div`
   display: grid;
@@ -49,7 +59,8 @@ const PackageImage = styled.div`
   width: 100%;
   height: 300px;
   min-height: 300px;
-  background-size: cover;
+  background-size: 65%;
+  background-repeat: no-repeat;
   background-position: center;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -64,8 +75,13 @@ const PackageContent = styled.div`
 
 const PackageTitleSection = styled.div<{ $tier?: number }>`
   padding: 0.75rem;
-  min-height: 200px;
-  border: 3px solid transparent;
+  min-height: 140px;
+  border: 3px solid ${({ $tier }) =>
+    $tier === 0 ? '#C0C0C0' : // Silver
+      $tier === 1 ? '#c7ae20' : // Gold
+        $tier === 2 ? '#C0AAD8' : // Purple brand color
+          'transparent'
+  };
   border-radius: 8px;
 `;
 
@@ -96,7 +112,6 @@ const PackageTitle = styled.h3`
 const PackageSubtitle = styled.h4`
   font-size: 0.95rem;
   color: #666;
-  margin-bottom: 1.5rem;
   font-weight: normal;
   font-style: italic;
   min-height: 2.8em;
@@ -162,22 +177,23 @@ const CuratedBites = () => {
     <PageContainer>
       <PackagesSection>
         <SectionTitle>Curated Bites</SectionTitle>
+        <Description>
+          Our curated Cup-cuteries, Grazettes, and Petite Feasts offer a perfectly portioned bite-size experience – ideal for delivery or picked when a full gourmet cart service is not needed. Thoughtfully styled, elegant, and delicious!
+        </Description>
 
         <PackageGrid>
           {packages.map((pkg, index) => (
             <PackageCard key={index}>
-              <PackageImage style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/hot-chocolate-bar-${index + 1}.png)` }} />
+              <PackageImage style={{
+                backgroundImage: `url(${process.env.PUBLIC_URL}/${index === 0 ? 'curated-bites-cup-cuterie.jpg' : index === 1 ? 'curated-bites-grazette.png' : 'curated-bites-petite-feast.png'})`,
+                backgroundSize: index === 2 ? '55%' : '65%'
+              }} />
 
               <PackageContent>
                 <PackageTitleSection $tier={index}>
                   <PackageTitle>{pkg.title}</PackageTitle>
                   <PackageSubtitle>{pkg.subtitle}</PackageSubtitle>
                 </PackageTitleSection>
-                <FeatureList>
-                  {pkg.features.map((feature, i) => (
-                    <Feature key={i}>{feature}</Feature>
-                  ))}
-                </FeatureList>
               </PackageContent>
             </PackageCard>
           ))}
