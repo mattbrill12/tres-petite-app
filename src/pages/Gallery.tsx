@@ -199,24 +199,6 @@ export const Gallery: React.FC = () => {
   const galleryImages = [
     { src: 'about-us-one.jpg', alt: 'Event setup' },
     { src: 'about-us-two.jpg', alt: 'Food display' },
-    { src: 'cart-3.jpg', alt: 'Mobile cart' },
-    { src: 'cart.jpg', alt: 'Charcuterie cart' },
-    { src: 'cart-landscape.png', alt: 'Cart landscape view' },
-    { src: 'croffle.png', alt: 'Croffle dessert' },
-    { src: 'curated-bites-cup-cuterie.jpg', alt: 'Cup cuterie' },
-    { src: 'curated-bites-grazette.png', alt: 'Grazette board' },
-    { src: 'curated-bites-petite-feast.png', alt: 'Petite feast' },
-    { src: 'beverage-bar-1.png', alt: 'Beverage bar setup' },
-    { src: 'beverage-bar-2.png', alt: 'Beverage service' },
-    { src: 'beverage-bar-3.png', alt: 'Drink display' },
-    { src: 'hot-chocolate-bar-1.png', alt: 'Hot chocolate bar' },
-    { src: 'hot-chocolate-bar-2.png', alt: 'Hot chocolate setup' },
-    { src: 'hot-chocolate-bar-3.png', alt: 'Chocolate beverages' },
-    { src: 'mobile-charcuterie-cart-1.png', alt: 'Mobile charcuterie' },
-    { src: 'mobile-charcuterie-cart-2.png', alt: 'Charcuterie display' },
-    { src: 'mobile-charcuterie-cart-3.png', alt: 'Cart details' },
-    { src: 'petite-scoops.png', alt: 'Ice cream scoops' },
-    { src: 'sweet-sips.png', alt: 'Sweet beverages' },
   ];
 
   const navigateLightbox = (direction: 'prev' | 'next') => {
