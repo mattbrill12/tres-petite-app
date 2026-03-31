@@ -29,59 +29,32 @@ Your app is ready to be deployed!
 
 ## Deployment to GitHub Pages
 
-### Automated Deployment (Recommended)
+### How It Works
 
-The project includes automated CI/CD using GitHub Actions. **Simply push your code changes to the `main` branch** and the workflow will automatically:
-1. Build the project
-2. Deploy build files to the `gh-pages` branch
-3. GitHub Pages serves from the `gh-pages` branch
+GitHub Pages is configured to serve from the `gh-pages` branch (`/ (root)`). The site is live at [trespetitellc.com](http://trespetitellc.com).
 
-**Workflow:**
-```bash
-# 1. Make your code changes
-git add .
-git commit -m "Your commit message"
-git push origin main
+### Deploying
 
-# 2. GitHub Actions automatically handles:
-#    - Building the project
-#    - Deploying build files to gh-pages branch
-#    - Your main branch stays clean (no deployment commits!)
-```
-
-**Manual Deployment (Local):**
-
-If you prefer to deploy manually from your local machine:
+From the `main` branch with no uncommitted changes, run:
 
 ```bash
-npm run deploy:root
+npm run deploy
 ```
 
-This single command will:
-1. Build the project (`npm run build`)
-2. Copy build files to root directory (`npm run copy-build`)
-3. Commit and push changes (`npm run commit-deploy`)
+This runs `scripts/deploy-gh-pages.sh`, which will:
+1. Build the production bundle (`npm run build`)
+2. Switch to the `gh-pages` branch
+3. Replace all files with the new build output
+4. Add the `CNAME` file for the custom domain
+5. Commit and force-push to `gh-pages`
+6. Switch back to `main`
 
-**Individual Steps (if needed):**
+The site will be updated at [trespetitellc.com](http://trespetitellc.com) within 1–2 minutes.
 
-```bash
-# Build the project
-npm run build
-
-# Copy build files to root
-npm run copy-build
-
-# Commit and push (optional, if you want to review changes first)
-npm run commit-deploy
-```
-
-The site will be automatically updated at your GitHub Pages URL.
-
-**Note:** 
-- The GitHub Actions workflow automatically deploys to the `gh-pages` branch on every push to `main`
-- Your `main` branch stays clean - no deployment commits!
-- Make sure GitHub Pages is configured to serve from the `gh-pages` branch (Settings → Pages → Source: Deploy from a branch → Branch: `gh-pages` → Folder: `/ (root)`)
-- For local manual deployments, use `npm run deploy:root` (this still deploys to root, but you can update it to use gh-pages if preferred)
+**Note:**
+- You must be on the `main` branch with a clean working tree to deploy
+- GitHub Pages is configured to: Settings → Pages → Source: Deploy from a branch → Branch: `gh-pages` → Folder: `/ (root)`
+- The custom domain `trespetitellc.com` is set in GitHub Pages settings and written to `CNAME` by the deploy script
 
 ## Learn More
 

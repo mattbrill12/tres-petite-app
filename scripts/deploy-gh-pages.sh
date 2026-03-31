@@ -41,7 +41,7 @@ cp -r /tmp/gh-pages-build/* .
 rm -rf /tmp/gh-pages-build
 
 echo "✓ Adding CNAME..."
-echo "test.trespetitellc.com" > CNAME
+echo "trespetitellc.com" > CNAME
 
 echo "✓ Committing changes..."
 git add -A
@@ -54,4 +54,4 @@ echo "✓ Returning to main branch..."
 git checkout main
 
 echo "🎉 Deployment complete!"
-echo "Your site will be live at https://test.trespetitellc.com in 1-2 minutes"
+echo "Your site will be live at http://trespetitellc.com in 1-2 minutes"
