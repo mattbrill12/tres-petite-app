@@ -237,7 +237,7 @@ ${formElement.message.value}`;
         message: formData.get('message')
       });
 
-      await fetch('https://script.google.com/macros/s/AKfycbxWaCN08IHk-1U0p-w-rB2wHcnepgEfu91Kd-B9NsEk_I4_HHmd-uYD97WXRsVg-14H/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbwrPk4NyTVSqbCeePY413oY-NNuEnrzNXjzn5iUViGlriO313axn80FX1h1GYtjal9I/exec', {
         method: 'POST',
         body: formData,
         mode: 'no-cors'

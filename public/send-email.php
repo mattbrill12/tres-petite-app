@@ -26,7 +26,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Email recipient (your email address)
-$to = 'trespetitellc@gmail.com';
+$to = 'contact@trespetitellc.com';
 
 // Email subject
 $subject = "New Contact Form Submission from $firstName $lastName";

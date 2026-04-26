@@ -161,7 +161,7 @@ export const AboutUs: React.FC = () => {
           <ContactInfo>
             <h2>Get in Touch</h2>
             <p>
-              <a href="mailto:trespetitellc@gmail.com">trespetitellc@gmail.com</a>
+              <a href="mailto:contact@trespetitellc.com">contact@trespetitellc.com</a>
             </p>
           </ContactInfo>
         </ContactSection>
